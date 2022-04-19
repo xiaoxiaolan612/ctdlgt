@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n, a[1000],ok=0;
+void in(){
+    for(int i=0;i<n;i++) cout<<a[i]<<" ";
+    cout<<endl;
+}
+bool kt(){
+    int i=n-1, j=0;
+    while(j<=i){
+        if(a[i]!=a[j]) return 0;
+        i--;j++;
+    }
+    return 1;
+}
+void sinh(){
+    int i=n-1;
+    while(i>=0&&a[i]==1){
+        a[i]=0;
+        i--;
+    }
+    if(i==-1) ok=1;
+    else a[i]=1;
+
+}
+int main(){
+        cin>>n;
+        for(int i=0;i<n;i++) a[i]=0;
+        while(ok==0){
+            if(kt()) in();
+            sinh();
+        }
+}
